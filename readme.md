@@ -10,19 +10,29 @@ It solves the problem of having to establish <sub>n</sub>C<sub>2</sub> discrete 
 **Balancing mechanism**. In the case of market movement, or liquidity pool movements/imbalances, market arbitrages should re-balance to equilbrium pricing.
 
 ## Formula
-> (R<sub>selling</sub> + ∆R<sub>selling</sub>)(R<sub>buying</sub> - γ∆R<sub>buying</sub>) = k
 
-where R are the reserves, and γ = 1 + commission (in %)
+<br>
 
-  $\frac{n!}{k!(n-k)!}$
+>![\Large&space;\gamma\Delta{R_{buying}}=\frac{R_{buying}*\Delta{R_{selling}}}{R_{selling}+\Delta{R_{selling}}}](https://latex.codecogs.com/svg.latex?\Large&space;(R_{selling}+\Delta{R_{selling}})(R_{buying}-\gamma\Delta{R_{buying}})=k)
+
+
+where R are the reserves; 
+and γ = 1 + commission (in %)
+
+<br>
 
 Therefore, re-arranging for ∆R<sub>buying</sub> (amount of buying currency to receive), given ∆R<sub>selling</sub> (the target amount to sell):
 
->γ∆R<sub>buying</sub> = $\frac{R_{buying} * ∆R_{selling}}{R_{selling} + ∆R_{selling}}$
 
-Or, re-arranging for ∆R<sub>selling</sub> (cost in units of selling currency), given ∆R<sub>buying</sub> (target units of currency to acquire) :
 
->∆R<sub>selling</sub> = $\frac{R_{selling} * γ∆R_{buying}}{R_{buying} - γ∆R_{selling}}$
+>![\Large&space;\gamma\Delta{R_{buying}}=\frac{R_{buying}*\Delta{R_{selling}}}{R_{selling}+\Delta{R_{selling}}}](https://latex.codecogs.com/svg.latex?\gamma\Delta{R_{buying}}=\frac{R_{buying}*\Delta{R_{selling}}}{R_{selling}+\Delta{R_{selling}}})
+
+<br>
+
+Or, re-arranging for ∆R<sub>selling</sub> (cost in units of selling currency), given ∆R<sub>buying</sub> (target units of currency to acquire):
+
+
+>![\Large&space;\Delta{R_{selling}}=\frac{R_{selling}*\gamma\Delta{R_{buying}}}{R_{buying}-\gamma\Delta{R_{buying}}}](https://latex.codecogs.com/svg.latex?\Delta{R_{selling}}=\frac{R_{selling}*\gamma\Delta{R_{buying}}}{R_{buying}-\gamma\Delta{R_{buying}}})
 
 
 ## Try it
@@ -33,12 +43,12 @@ yarn  start:dev
 
 ```
 
-### Get /
+### `Get` /
 
 See the balances of the simulated market.
 
 
-### Get swap/:userID/:buy/:amount/:sell
+### `Get` swap/:userID/:buy/:amount/:sell
 
 Simulate a user swapping for a currency from the pool, using a currency that he/she owns.
 
