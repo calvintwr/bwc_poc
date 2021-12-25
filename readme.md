@@ -19,7 +19,7 @@ It solves the problem of having to establish <sub>n</sub>C<sub>2</sub> discrete 
 where R are the reserves; 
 and γ = 1 + commission (in %)
 
-*Note: This varies from the constant product formula used by Uniswap, where commission is charged on the currency sold, and pooled together for distribution to all Liquidity Providers (LPs). In this version instead, actor will spend to purchase an amount of desired currency that includes fees. I.e. Instead of buying 10 USD, one and to buy 10 USD + fees in USD. The fees are distributed to LPs of the purchased currency. This incentivises LPs to provide for pools there are being depleted, as currencies in-demand with depleting (or high turnover) pools will generate higher returns in fees, acting to maintain market equilibrium.
+*Note: This varies from the constant product formula used by Uniswap, where commission is charged on the currency sold, and pooled together for distribution to all Liquidity Providers (LPs). In this version instead, actor will spend more to purchase an amount of desired currency that includes fees. I.e. Instead of buying 10 USD, one is to buy 10 USD + fees in USD. The fees are distributed to LPs of the purchased currency. This incentivises LPs to provide for pools there are being depleted, as currencies in-demand with depleting (or high turnover) pools will generate higher returns in fees, acting to maintain market equilibrium.
 
 <br>
 
@@ -36,6 +36,13 @@ Or, re-arranging for ∆R<sub>selling</sub> (cost in units of selling currency),
 
 >![\Large&space;\Delta{R_{selling}}=\frac{R_{selling}*\gamma\Delta{R_{buying}}}{R_{buying}-\gamma\Delta{R_{buying}}}](https://latex.codecogs.com/svg.latex?\Delta{R_{selling}}=\frac{R_{selling}*\gamma\Delta{R_{buying}}}{R_{buying}-\gamma\Delta{R_{buying}}})
 
+## Roles and Incentives
+
+**Liquidity Providers** provide liquidity (staking) in return for commissions, akin to collecting interest with deposits in the bank. As a reference of equivalent interest rate accruable, at the time of writing (25 Decemeber 2021), Uniswap has an average of 4.3b USD and equivalent liquidity provided, and averaging daily volume of 1b USD, over a period of 30 days. At a small 0.1% commission rate earned, this represents an equivalent of 8.4% gains per annum, beating bank interests by far if funds are equally secured by bank or bank-like institutions. In addition, vastly reducing discrete liquidity pools should reduce liquity to volume ratio, increaseing per annum gains beyond 8.4%.
+
+**Arbitragers** are natural profit-seeking individuals who will await imbalances to capture gains by equalizing differences between conventional forex and cryptocurrency representations. This is much like existing incentivised arbitrages that keeps all cryptocurency exchanges prices similar to one another. Practically, such players typically hold sufficiently large amount of assets in reserves, and likely employ automated algorithms to conduct arbitrages at an efficient and effective scale.
+
+**Users** are natural persons or organisations seeking to swap their currencies to another. If given that liquidity pools are large enough, and effective arbitraging to maintain price equilibrium, and an cost-efficient blockchain (Solana, Cardano, Polkadot or Ethereum V2), the cost of currency exchange on crypto for trading purposes would likely be lower than conventional forex (0.2-0.5%). If coupled with efficient fiat multicurrency account for money transfer solution (wise, remitly), or usage of funds directly on-chain, cost of money exchange will be much lower than remittance services (1-3%).
 
 ## Try it
 
