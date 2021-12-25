@@ -19,6 +19,8 @@ It solves the problem of having to establish <sub>n</sub>C<sub>2</sub> discrete 
 where R are the reserves; 
 and γ = 1 + commission (in %)
 
+*Note: This varies from the constant product formula used by Uniswap, where commission is charged on the currency sold, and pooled together for distribution to all Liquidity Providers (LPs). In this version instead, actor will spend to purchase an amount of desired currency that includes fees. I.e. Instead of buying 10 USD, one and to buy 10 USD + fees in USD. The fees are distributed to LPs of the purchased currency. This incentivises LPs to provide for pools there are being depleted, as currencies in-demand with depleting (or high turnover) pools will generate higher returns in fees, acting to maintain market equilibrium.
+
 <br>
 
 Therefore, re-arranging for ∆R<sub>buying</sub> (amount of buying currency to receive), given ∆R<sub>selling</sub> (the target amount to sell):
@@ -61,9 +63,9 @@ E.g: Dick buys 100 usd using sgd.
 
 ```
 
-The AMM algo will:
+The AMM formula will:
 
-1) Calculate the exchange rate using the constant product formula
+1) Calculate the exchange rate using the constant product formula, requiring the Dick pays in SGD the equivalent of 100 USD + 0.1 USD (fees of 0.1%). 
 2) Adjust Dick's balance by deducting SGD and adding 100 USD.
 3) Adds SGD into the liquidity pool.
-3) Distribute the fees (paid by Dick) proportionally to all USD liquidity providers.
+3) Distribute the fees of 0.1USD (paid by Dick) proportionally to all USD liquidity providers.
