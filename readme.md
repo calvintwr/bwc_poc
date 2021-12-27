@@ -38,9 +38,9 @@ Or, re-arranging for ∆R<sub>selling</sub> (cost in units of selling currency),
 
 ## Roles and Incentives
 
-**Liquidity Providers** provide liquidity (staking) in return for commissions, akin to collecting interest with deposits in the bank. Using past 30 day (as at 25 December 2021) data from Uniswap, "interest" accruable by LPs are 8.5% per annum with 0.1% commissions assumed, or 25.5% with 0.3% (Uniswap charges 0.3%).[^1] This becomes risk-viable if fiat deposits are held in bank/bank-like custodians, and if crypto assets are held in decentralized and trusted vaults.
+**Liquidity Providers** provide liquidity (staking) in return for commissions, akin to collecting interest with deposits in the bank. Using past 30 day (as at 25 December 2021) data from Uniswap, "interest" accruable by LPs are 8.5% per annum with 0.1% commissions assumed, or 25.5% with 0.3% (Uniswap charges 0.3%).[^1] This becomes risk-viable if fiat deposits are held in bank/bank-like custodians, and if crypto assets are held in decentralized, immutable, and algorithmically temper-proof vaults.
 
-[^1]:At the time of this writing (25 Decemeber 2021), Uniswap's 30-day average were 4.3b USD in liquidity, and a daily volume of 1b USD. Assuming one operates this AMM with 0.1% commission (Uniswap charges 0.3%), fees earned by LP = 1/4.3*0.001*365 = 8.49%)
+[^1]:At the time of this writing (25 Decemeber 2021), Uniswap's 30-day average were 4.3b USD in liquidity, and a daily volume of 1b USD. Assuming one operates this AMM with 0.1% commission (Uniswap charges 0.3%), fees earned by LP = 1 / 4.3 * 0.001 * 365 = 8.49%)
 
 **Arbitragers** are natural profit-seeking individuals who will await and capture gains by equalizing differences between conventional forex and cryptocurrencies. Practically, such players typically hold sufficiently large amount of assets in reserves, and likely employ automated algorithms to conduct arbitrages at an efficient and effective scale, much akin existing mechanisms that balances crpyto prices across exchanges.
 
