@@ -116,7 +116,7 @@ class Market {
         }
 
         // ADJUST GLOBAL BALANCE
-        this.pool[buying].balance -= buyAmt
+        this.pool[buying].balance -= buyAmt - fees
         this.pool[selling].balance += sellAmtRequired
 
         // DISTRIBUTE REWARDS
@@ -134,25 +134,26 @@ class Market {
         for (let u in this.pool[currency].providers) {
             let apportioned = fees * (this.pool[currency].providers[u]/sum)
 
-            if (typeof this.balance[u]?.[currency] !== 'number') {
-                // if user doesn't have a balance account
-                if (!this.balance[u]) {
-                    this.balance[u] = {
-                        [currency]: 0
-                    }
-                } else {
-                    // user has a balance account but not the currency
-                    this.balance[u][currency] = 0
-                }
-            }
+
+            // if (typeof this.balance[u]?.[currency] !== 'number') {
+            //     // if user doesn't have a balance account
+            //     if (!this.balance[u]) {
+            //         this.balance[u] = {
+            //             [currency]: 0
+            //         }
+            //     } else {
+            //         // user has a balance account but not the currency
+            //         this.balance[u][currency] = 0
+            //     }
+            // }
 
             if (feesRemaining < apportioned) {
-                this.balance[u][currency] += feesRemaining
+                this.pool[currency].providers[u] += feesRemaining
                 console.warn('Fees are not enough to apportion to all. Could be fractional errors, or too small a transaction.')
                 break
             }
 
-            this.balance[u][currency] += apportioned
+            this.pool[currency].providers[u] += apportioned
             feesRemaining -= apportioned
 
         }

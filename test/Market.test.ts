@@ -33,13 +33,13 @@ describe('index', () => {
         const sgdSpent = 13.6137361373613
         market.balanceOf('dick', 'usd').should.equal(10)
         market.balanceOf('dick', 'sgd').should.equal(1000-sgdSpent)
-        market.pool.usd.balance.should.equal(999990)
+        market.pool.usd.balance.should.equal(999990 + 10*0.001)
         market.pool.sgd.balance.should.equal(1360000+sgdSpent)
-        market.balanceOf('bob', 'usd').should.equal(10*0.001*0.65)
-        market.balanceOf('charlie', 'usd').should.equal(10*0.001*0.35)
+        market.poolBalanceOf('bob', 'usd').should.equal(650000+ 10*0.001*0.65)
+        market.poolBalanceOf('charlie', 'usd').should.equal(350000 + 10*0.001*0.35)
     })
 
-    it('should be able to trade pairs', () => {
+    it('should be able to trade pairs (no comms)', () => {
         const market = new Market
         market.comms = 0
         market._mint('alice', 'sgd', 1360000)
@@ -50,13 +50,13 @@ describe('index', () => {
         market.addLiquidity('charlie', 'usd', 350000)
         market._mint('dick', 'sgd', 1000)
         market.buy('dick', 'usd', 10, 'sgd')
-        const sgdSpent = 13.6137361373613
+        const sgdSpent = 13.60013600136 // floating point issue
         market.balanceOf('dick', 'usd').should.equal(10)
-        market.balanceOf('dick', 'sgd').should.equal(1000-sgdSpent)
+        market.balanceOf('dick', 'sgd').should.equal(986.39986399864)
         market.pool.usd.balance.should.equal(999990)
         market.pool.sgd.balance.should.equal(1360000+sgdSpent)
-        market.balanceOf('bob', 'usd').should.equal(10*0.001*0.65)
-        market.balanceOf('charlie', 'usd').should.equal(10*0.001*0.35)
+        market.poolBalanceOf('bob', 'usd').should.equal(650000)
+        market.poolBalanceOf('charlie', 'usd').should.equal(350000)
     })
 
 })
